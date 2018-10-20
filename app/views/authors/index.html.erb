@@ -1,0 +1,21 @@
+<header class="page-header">
+  <div class="header-block-container">
+    <hl>Authors</hl>
+
+    <%= link_to '+ Add Author', new_author_path, class: 'button-white-outline' %>
+    </div>
+  </header>
+
+  <div class="table-block-container">
+    <table>
+      <tbody>
+        <% @authors.alphabetical.each do |author| %>
+        <tr>
+          <td><%= link_to author.reverse_name, author %></td>
+          <td><%= author.country %></td>
+          <td><%= author.age %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

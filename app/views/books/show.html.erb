@@ -1,49 +1,25 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <div class+"header-block-container">
+<h1>New Book</h1>
+<%= link_to 'Back', books_path, class: 'button-white-outline' %>
+</div>
+</header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @book.text %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <%= @book.genre %>
-</p>
-
-<p>
-  <strong>Publish date:</strong>
-  <%= @book.publish_date %>
-</p>
-
-<p>
-  <strong>Num pages:</strong>
-  <%= @book.num_pages %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @book.image_url %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<section class="book-wrapper">
+  <div class="book-block-container">
+    <% if @book.image_url %>
+    <% end %>
+    <div class="text-block">
+      <br>
+      <br>
+      <hl><%= @book.title %></hl>
+      <h6><%= link_to @book.author.full_name, author_path(@book.author) %></h6>
+      <br>
+      <br>
+      <p><%= @book.description %></p>
+      <% if current_user.present? %>
+      <%= link_to "Write a review", new_book_review_path(@book) %>
+      <% end %>
+    </div>
+  </div>
+</section>

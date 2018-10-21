@@ -3,8 +3,15 @@
 	<div class="header-block-container">
 <h1><%= @author.full_name %></h1>
 <%= link_to 'Edit', edit_author_path(@author), class: 'button-white-outline' %>
+<% end %>
 </div>
 </header>
+<section class="book-block-comtainer">
+	<div class="books">
+		<% @author.books.each do |book| %>
+		<div class="book">
+			<div class="book-cover">
+
 <p id="notice"><%= notice %></p>
 
 <p>

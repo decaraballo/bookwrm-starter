@@ -1,7 +1,11 @@
 <header class="page-header">
   <div class="header-block-container">
     <hl>Authors</hl>
-
+<% if current_user.present? %>
+    <%= link_to '+ Add Author', new_author_path, class: 'button-white-outline' %>
+    <% end %>
+</div>
+</header>
     <%= link_to '+ Add Author', new_author_path, class: 'button-white-outline' %>
     </div>
   </header>
